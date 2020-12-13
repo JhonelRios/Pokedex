@@ -22,5 +22,13 @@ module.exports = {
     'react/prop-types': 0,
     'import/no-named-as-default': 0,
     'import/no-named-as-default-member': 0,
+    'jsx-a11y/label-has-associated-control': [
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id'],
+        },
+      },
+    ],
   },
 };
