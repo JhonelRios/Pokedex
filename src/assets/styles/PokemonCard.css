@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 3rem;
+  margin-top: 5%;
 }
 
 .card-image {
@@ -32,4 +32,27 @@
 .card-description li {
   padding: 0.2rem;
   border-bottom: wheat 2px solid;
+}
+
+.card-buttons {
+  width: 100%;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-buttons button {
+  background-color: tomato;
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.4rem;
+  align-self: center;
+  width: 30%;
+  cursor: pointer;
+}
+
+.card-buttons button:hover {
+  filter: brightness(1.1);
 }
