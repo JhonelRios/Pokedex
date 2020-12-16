@@ -1,0 +1,29 @@
+.type-container {
+  padding: 0.2rem;
+  border: white 2px solid;
+  border-radius: 20px;
+  min-width: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.type-container:before {
+  content: ' ';
+  position: absolute;
+  /* z-index: 1; */
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+
+.type-container span {
+  color: white;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
