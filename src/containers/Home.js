@@ -12,7 +12,7 @@ export default function Home() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setSearch(pokemonInput);
+    setSearch(pokemonInput.toLowerCase());
     setPokemonInput('');
   };
 
@@ -25,7 +25,9 @@ export default function Home() {
         setPokemonInput={setPokemonInput}
       />
 
-      {search && <PokemonCard pokemonInput={search} setError={setError} />}
+      {search && (
+        <PokemonCard pokemonInput={search} error={error} setError={setError} />
+      )}
     </main>
   );
 }

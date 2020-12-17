@@ -5,7 +5,7 @@ import TypeBox from './TypeBox';
 
 import '../assets/styles/PokemonCard.css';
 
-export default function PokemonCard({ pokemonInput, setError }) {
+export default function PokemonCard({ pokemonInput, error, setError }) {
   const [pokemonIndex, setPokemonIndex] = useState(0);
   const [pokemonQuery, setPokemonQuery] = useState(pokemonInput);
   const [pokemonData, setPokemonData] = useState(null);
@@ -30,6 +30,7 @@ export default function PokemonCard({ pokemonInput, setError }) {
     }
 
     setLoading(true);
+    setError(false);
 
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${query}`)
@@ -42,45 +43,47 @@ export default function PokemonCard({ pokemonInput, setError }) {
   }, [pokemonIndex, pokemonInput]);
 
   return (
-    <div className="card-container">
-      {loading ? (
-        <h1>Cargando...</h1>
-      ) : (
-        <>
-          <img
-            className="card-image"
-            src={pokemonData.sprites.front_default}
-            alt={pokemonData.name}
-          />
+    !error && (
+      <div className="card-container">
+        {loading ? (
+          <h1>Loading...</h1>
+        ) : (
+          <>
+            <img
+              className="card-image"
+              src={pokemonData.sprites.front_default}
+              alt={pokemonData.name}
+            />
 
-          <div className="card-description">
-            <strong>{pokemonData.name}</strong>
+            <div className="card-description">
+              <strong>{pokemonData.name}</strong>
 
-            <div className="description-type">
-              <div>
-                {pokemonData.types.map((type) => (
-                  <TypeBox key={type.slot} type={type.type} />
-                ))}
+              <div className="description-type">
+                <div>
+                  {pokemonData.types.map((type) => (
+                    <TypeBox key={type.slot} type={type.type} />
+                  ))}
+                </div>
+
+                <ul>
+                  {pokemonData.abilities.map((ability) => (
+                    <li key={ability.slot}>{ability.ability.name}</li>
+                  ))}
+                </ul>
               </div>
-
-              <ul>
-                {pokemonData.abilities.map((ability) => (
-                  <li key={ability.slot}>{ability.ability.name}</li>
-                ))}
-              </ul>
             </div>
-          </div>
 
-          <div className="card-buttons">
-            <button onClick={handleBack} type="button">
-              Back
-            </button>
-            <button onClick={handleNext} type="button">
-              Next
-            </button>
-          </div>
-        </>
-      )}
-    </div>
+            <div className="card-buttons">
+              <button onClick={handleBack} type="button">
+                Back
+              </button>
+              <button onClick={handleNext} type="button">
+                Next
+              </button>
+            </div>
+          </>
+        )}
+      </div>
+    )
   );
 }
