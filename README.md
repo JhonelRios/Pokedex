@@ -1,6 +1,6 @@
 # App
 
-This project was created with React and the Pokemon API. Use the app with the next link: [Pokedex]().
+This project was created with React and the Pokemon API. Use the app with the next link: [Pokedex](https://pokedex-jhonel.netlify.app/).
 
 ## Available Scripts
 
