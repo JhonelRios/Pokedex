@@ -23,6 +23,10 @@
   font-size: 1.2rem;
 }
 
+.card-description .pokemon-id {
+  font-weight: 300;
+}
+
 .description-type {
   margin: 1rem 0;
 }

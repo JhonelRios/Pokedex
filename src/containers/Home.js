@@ -13,6 +13,13 @@ export default function Home() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setSearch(pokemonInput.toLowerCase());
+
+    setError(false);
+
+    if (!pokemonInput) {
+      setError(true);
+    }
+
     setPokemonInput('');
   };
 

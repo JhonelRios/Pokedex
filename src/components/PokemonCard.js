@@ -56,7 +56,10 @@ export default function PokemonCard({ pokemonInput, error, setError }) {
             />
 
             <div className="card-description">
-              <strong>{pokemonData.name}</strong>
+              <strong>
+                {pokemonData.name}{' '}
+                <span className="pokemon-id">#{pokemonData.id}</span>
+              </strong>
 
               <div className="description-type">
                 <div>
